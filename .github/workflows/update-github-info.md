@@ -21,6 +21,11 @@ network:
 engine:
    id: copilot
    copilot-sdk: true
+
+pre-steps:
+  - name: List contents of the current folder
+    id: plugin_credentials
+    run: ls
 ---
 
 # Update Mona's GitHub Info website
