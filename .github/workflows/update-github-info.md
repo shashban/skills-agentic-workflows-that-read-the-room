@@ -21,6 +21,8 @@ network:
 engine:
    id: copilot
    copilot-sdk: true
+plugins:
+  - microsoft/microsoft-sql/plugins/microsoft-sql-migration@main
 
 pre-steps:
   - name: List contents of the current folder
@@ -43,6 +45,13 @@ Use web-fetch to read https://awesome-copilot.github.com/workflows/.
 Update `site/content/github-info.md` with concise,
 practical updates for readers and include source context when content comes
 from the GitHub Blog, GitHub Changelog, or Awesome Copilot workflows.
+
+Before opening a pull request for Mona to review, invoke the
+`sql-server-to-sql-mi-lrs-migration` skill from the installed
+`microsoft-sql-migration` plugin. Limit its use to guidance relevant to this
+website update; do not connect to databases, run migrations, or modify cloud
+resources. If the skill is unavailable or fails, report the problem and stop
+without opening a pull request.
 
 Open a pull request for Mona to review. 
 Use a pull request title that mentions Mona or GitHub Info. 
